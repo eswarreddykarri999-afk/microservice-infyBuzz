@@ -1,6 +1,6 @@
 package com.ibm.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "student")
@@ -20,9 +20,8 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 
-	@OneToOne
-	@JoinColumn(name = "address_id")
-	private Address address;
+	@Column(name = "address_id")
+    private long addressId;
 
 	public Long getId() {
 		return id;
@@ -56,12 +55,11 @@ public class Student {
 		this.email = email;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
+    public long getAddressId() {
+        return addressId;
+    }
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
+    public void setAddressId(long addressId) {
+        this.addressId = addressId;
+    }
 }
